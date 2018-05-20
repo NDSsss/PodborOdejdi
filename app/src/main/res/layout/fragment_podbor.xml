@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PodborFragment"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <ImageSwitcher
+        android:id="@+id/pod_imgsw1"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"/>
+    <ImageSwitcher
+        android:id="@+id/pod_imgsw2"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/pod_imgsw1"
+        android:layout_centerInParent="true"/>
+    <ImageSwitcher
+        android:id="@+id/pod_imgsw3"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/pod_imgsw2"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/pod_btn_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pod_imgsw3"
+        android:layout_centerInParent="true"
+
+        android:text="Try" />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pod_btn_1_left"
+        android:layout_toLeftOf="@id/pod_imgsw1"
+        android:src="@drawable/btn_left"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pod_btn_1_right"
+        android:layout_toRightOf="@id/pod_imgsw1"
+        android:src="@drawable/btn_right"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pod_btn_2_left"
+        android:layout_toLeftOf="@id/pod_imgsw2"
+        android:layout_below="@id/pod_imgsw1"
+        android:src="@drawable/btn_left"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pod_btn_2_right"
+        android:layout_below="@id/pod_imgsw1"
+        android:layout_toRightOf="@id/pod_imgsw2"
+        android:src="@drawable/btn_right"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pod_btn_3_left"
+        android:src="@drawable/btn_left"
+        android:layout_toLeftOf="@id/pod_imgsw3"
+        android:layout_below="@id/pod_imgsw2"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pod_btn_3_right"
+        android:layout_toRightOf="@id/pod_imgsw3"
+        android:layout_below="@id/pod_imgsw2"
+        android:src="@drawable/btn_right"/>
+
+</RelativeLayout>

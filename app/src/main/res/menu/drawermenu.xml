@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/podbor" android:title="Podbor" android:icon="@drawable/ic_rejon_ant_icon"/>
+    <item android:id="@+id/add" android:title="Add think" android:icon="@drawable/ic_rejon_ant_icon"/>
+    <item android:id="@+id/look" android:title="Look all" android:icon="@drawable/ic_rejon_ant_icon"/>
+</menu>
