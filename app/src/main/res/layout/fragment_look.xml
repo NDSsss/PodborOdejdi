@@ -1,14 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LookFragment">
+    tools:context=".PodborFragment"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment Look" />
 
-</FrameLayout>
+
+    <ImageView
+        android:id="@+id/look_imgw1"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"/>
+    <ImageView
+        android:id="@+id/look_imgw2"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/look_imgw1"
+        android:layout_centerInParent="true"/>
+    <ImageView
+        android:id="@+id/look_imgw3"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/look_imgw2"
+        android:layout_centerInParent="true"/>
+
+    <ImageButton
+        android:id="@+id/look_imgw1l"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/look_imgw1"
+        android:src="@drawable/btn_left"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/look_imgw1r"
+        android:layout_toEndOf="@id/look_imgw1"
+        android:src="@drawable/btn_right"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/look_imgw2l"
+        android:layout_toStartOf="@id/look_imgw2"
+        android:layout_below="@id/look_imgw1"
+        android:src="@drawable/btn_left"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/look_imgw2r"
+        android:layout_below="@id/look_imgw1"
+        android:layout_toEndOf="@id/look_imgw2"
+        android:src="@drawable/btn_right"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/look_imgw3l"
+        android:src="@drawable/btn_left"
+        android:layout_toStartOf="@id/look_imgw3"
+        android:layout_below="@id/look_imgw2"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/look_imgw3r"
+        android:layout_toEndOf="@id/look_imgw3"
+        android:layout_below="@id/look_imgw2"
+        android:src="@drawable/btn_right"/>
+
+</RelativeLayout>

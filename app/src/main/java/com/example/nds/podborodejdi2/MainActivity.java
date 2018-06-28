@@ -19,6 +19,19 @@ public class MainActivity extends AppCompatActivity {
     Class fragmentClass;
     android.support.v4.app.Fragment myFragment;
     private int kolv0_footbolok=3,curr_temp =13,kolv0_shtani=3,kolv0_obuv=3;
+    AddFragment addFragment;
+    LookFragment lookFragment;
+    PodborFragment podborFragment;
+    android.support.v4.app.FragmentManager fragmentManager;
+
+    public void onClick(View view) {
+        switch (view.getId()) {
+
+
+        }
+
+    }
+
     static class Footbolka
     {
         int id=0,min_temp=0,max_temp=0;
@@ -110,22 +123,10 @@ public class MainActivity extends AppCompatActivity {
         catch (Exception e){
             e.printStackTrace();
         }
-        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.frlya,myFragment).commit();
 
-        dataFromActivityToFragment =(DataFromActivityToFragment)myFragment;
-        if(footbolkas_podhod!=null)
-            dataFromActivityToFragment.SendFootbolki(true,footbolkas_podhod);
-        else
-            dataFromActivityToFragment.SendFootbolki(false,footbolkas_podhod);
-        if(shtanis_podhod!=null)
-            dataFromActivityToFragment.SendShtani(true,shtanis_podhod);
-        else
-            dataFromActivityToFragment.SendShtani(false,shtanis_podhod);
-        if(obuvs_podhod!=null)
-            dataFromActivityToFragment.SendObuv(true,obuvs_podhod);
-        else
-            dataFromActivityToFragment.SendObuv(false,obuvs_podhod);
+
 
     }
 
@@ -149,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.podbor:
                 fragmentClass=PodborFragment.class;
-                if(footbolkas_podhod!=null)
+                /*if(footbolkas_podhod!=null)
                     dataFromActivityToFragment.SendFootbolki(true,footbolkas_podhod);
                 else
                     dataFromActivityToFragment.SendFootbolki(false,footbolkas_podhod);
@@ -160,10 +161,9 @@ public class MainActivity extends AppCompatActivity {
                 if(obuvs_podhod!=null)
                     dataFromActivityToFragment.SendObuv(true,obuvs_podhod);
                 else
-                    dataFromActivityToFragment.SendObuv(false,obuvs_podhod);
+                    dataFromActivityToFragment.SendObuv(false,obuvs_podhod);*/
                 break;
-                default:
-                    fragmentClass = AddFragment.class;
+
 
         }
         try{
@@ -172,7 +172,6 @@ public class MainActivity extends AppCompatActivity {
         catch (Exception e){
             e.printStackTrace();
         }
-        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.frlya,myFragment).commit();
 
         menuItem.setChecked(true);
@@ -244,6 +243,36 @@ public class MainActivity extends AppCompatActivity {
                 return podhod;
             else
                 return null;
+        }
+
+        Footbolka[] getAllFootbolkas()
+        {
+            return footbolkas;
+        }
+
+        Shtani[] getAllShtanis()
+        {
+            return shtanis;
+        }
+
+        Obuv[] getAllObuvs()
+        {
+            return obuvs;
+        }
+
+        public Footbolka getFootbolka()
+        {
+            return footbolkas[0];
+        }
+
+        public Shtani getShtani()
+        {
+            return shtanis[0];
+        }
+
+        public Obuv getObuv()
+        {
+            return obuvs[0];
         }
 
     public interface DataFromActivityToFragment{

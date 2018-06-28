@@ -24,8 +24,9 @@ import android.widget.ViewSwitcher;
  * create an instance of this fragment.
  */
 public class PodborFragment extends Fragment
-implements ViewSwitcher.ViewFactory,View.OnClickListener,
-MainActivity.DataFromActivityToFragment{
+
+
+{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -78,7 +79,6 @@ MainActivity.DataFromActivityToFragment{
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-        Log.d(TAG,String.valueOf(footbolkas[0].id));
 
 
     }
@@ -86,11 +86,8 @@ MainActivity.DataFromActivityToFragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_podbor, null);
-        Log.d(TAG,String.valueOf(footbolkas[0].id));
         btn_main = (Button) view.findViewById(R.id.pod_btn_main);
-        btn_main.setOnClickListener(this);
 
         imgsw1 = (ImageSwitcher) view.findViewById(R.id.pod_imgsw1);
         imgsw2 = (ImageSwitcher) view.findViewById(R.id.pod_imgsw2);
@@ -109,12 +106,13 @@ MainActivity.DataFromActivityToFragment{
         };
 
         imgsw1.setFactory(factory);
-        footbolka_na_pokaz=footbolkas[0];
-        Log.d("myTag","OnCreateView Присвоение и вывод id = "+footbolka_na_pokaz.id);
+        footbolka_na_pokaz=((MainActivity)getActivity()).getFootbolka();
         imgsw1.setImageResource(footbolka_na_pokaz.id);
         imgsw2.setFactory(factory);
+        shtani_na_pokaz=((MainActivity)getActivity()).getShtani();
         imgsw2.setImageResource(shtani_na_pokaz.id);
         imgsw3.setFactory(factory);
+        obuv_na_pokaz=((MainActivity)getActivity()).getObuv();
         imgsw3.setImageResource(obuv_na_pokaz.id);
 
         return view;
@@ -132,61 +130,14 @@ MainActivity.DataFromActivityToFragment{
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        Log.d(TAG,String.valueOf(footbolkas[0].id));
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
-        Log.d(TAG,String.valueOf(footbolkas[0].id));
     }
 
-    @Override
-    public View makeView() {
-        Log.d(TAG,String.valueOf(footbolkas[0].id));
-        return null;
-
-    }
-
-    @Override
-    public void onClick(View v) {
-        Log.d(TAG,String.valueOf(footbolkas[0].id));
-    }
-
-    @Override
-    public void SendFootbolki(boolean est, MainActivity.Footbolka[] footbolkas) {
-        if(est)
-        {
-            for(int i=0;i<2;i++)
-            {
-                this.footbolkas[i]=footbolkas[i];
-                Log.d(TAG,"Footbolki prisvoeni"+footbolkas[i].id);
-            }
-        }
-        else
-            footbolka_na_pokaz.id=R.drawable.footbloka_default;
-    }
-
-    @Override
-    public void SendShtani(boolean est, MainActivity.Shtani[] shtanis) {
-        if(est){
-            shtani_na_pokaz=shtanis[0];
-            Log.d(TAG,"Shtani prisvoeni"+shtanis.length);
-        }
-        else
-            shtani_na_pokaz.id=R.drawable.shtani_default;
-    }
-
-    @Override
-    public void SendObuv(boolean est, MainActivity.Obuv[] obuvs) {
-        if(est){
-            obuv_na_pokaz=obuvs[0];
-            Log.d(TAG,"Obuv prisvoena"+obuvs.length);
-        }
-        else
-            obuv_na_pokaz.id = R.drawable.obuv_default;
-    }
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
